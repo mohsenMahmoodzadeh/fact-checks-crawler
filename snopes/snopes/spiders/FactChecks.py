@@ -94,3 +94,22 @@ class FactchecksSpider(scrapy.Spider):
         result = re.sub(r'\t', "", str(result))
 
         return result
+
+    def remove_html_tags(self, text):
+        clean_script = re.compile('<script[^>]*>[\s\S​]*?</script>')
+        clean_image_caption = re.compile('<figcaption[^>]*>[\s\S​]*?</figcaption>')
+        clean_iframe = re.compile('<iframe[^>]*>[\s\S​]*?</iframe>')
+        clean_all_tags = re.compile('<.*?>')
+
+
+        text = re.sub(clean_script, '', text)
+
+
+        text = re.sub(clean_image_caption, '', text)
+        text = re.sub(clean_iframe, '', text)
+        text = re.sub("[\n]+", " ", text)
+        text = re.sub("[\t]+", "", text)
+
+
+        text = re.sub("[\xa0]+", " ", text)
+        return re.sub(clean_all_tags, '', text)
