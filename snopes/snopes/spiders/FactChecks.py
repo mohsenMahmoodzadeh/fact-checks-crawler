@@ -88,3 +88,9 @@ class FactchecksSpider(scrapy.Spider):
             item["tags"] = tags
 
         yield item
+
+    def remove_special_chars(self, string):
+        result = re.sub(r'\n', "", str(string))
+        result = re.sub(r'\t', "", str(result))
+
+        return result
