@@ -1,5 +1,7 @@
 import scrapy
-
+import re
+import json
+from ..items import FactCheckItem
 
 class FactchecksSpider(scrapy.Spider):
     name = 'FactChecks'
