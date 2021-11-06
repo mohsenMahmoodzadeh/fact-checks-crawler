@@ -6,7 +6,13 @@
 import scrapy
 
 
-class SnopesItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class FactCheckItem(scrapy.Item):
+    title = scrapy.Field()
+    url = scrapy.Field()
+    content = scrapy.Field()
+    date_published = scrapy.Field()
+    rating = scrapy.Field()
+    author_name = scrapy.Field()
+    category = scrapy.Field()
+    claim = scrapy.Field()
+    tags = scrapy.Field()
