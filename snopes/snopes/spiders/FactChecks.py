@@ -5,14 +5,19 @@ from ..items import FactCheckItem
 
 class FactchecksSpider(scrapy.Spider):
     name = 'FactChecks'
-    allowed_domains = ['http://www.snopes.com']
-    start_urls = ['http://http://www.snopes.com/fact-check/']
+    allowed_domains = ['www.snopes.com']
+    start_urls = ['https://snopes.com/fact-check/']
     url_set = set({"https://www.snopes.com/fact-check/"})
     headers = {
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:48.0) Gecko/20100101 Firefox/48.0"
     }
 
     def parse(self, response):
+        """
+        This method crawls the pages and extracts:
+        1. links to the articles
+        2. link to next page
+        """
         links = response.css("body > div > div > div > main > div > div > article > a::attr(href)").extract()
         next_page = response.css(".page-link::attr(href)").extract()
         for link in links:
@@ -34,6 +39,7 @@ class FactchecksSpider(scrapy.Spider):
                 )
     
     def parse_fact_details(self, response):
+        """This method crawls and extracts the details of each article."""
         links_in_content = response.css(".single-body a::attr(href)").extract()
         for link in links_in_content:
             if link.startswith("https://www.snopes.com/fact-check/") and (link not in self.url_set):
@@ -98,20 +104,22 @@ class FactchecksSpider(scrapy.Spider):
         return result
 
     def remove_html_tags(self, text):
+        """This method removes HTML tags from a string"""
         clean_script = re.compile('<script[^>]*>[\s\S​]*?</script>')
         clean_image_caption = re.compile('<figcaption[^>]*>[\s\S​]*?</figcaption>')
         clean_iframe = re.compile('<iframe[^>]*>[\s\S​]*?</iframe>')
         clean_all_tags = re.compile('<.*?>')
 
-
+        # remove script tag with its content
         text = re.sub(clean_script, '', text)
 
-
+        # remove caption of an image with its content
         text = re.sub(clean_image_caption, '', text)
         text = re.sub(clean_iframe, '', text)
         text = re.sub("[\n]+", " ", text)
         text = re.sub("[\t]+", "", text)
 
-
+        # \xa0 is actually non-breaking space in Latin1 (ISO 8859-1), also chr(160).
+        # You should replace it with a space.
         text = re.sub("[\xa0]+", " ", text)
         return re.sub(clean_all_tags, '', text)
