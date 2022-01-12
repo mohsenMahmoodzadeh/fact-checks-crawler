@@ -29,7 +29,7 @@ After cloning the repository and install the dependencies, run the command below
 ```
 scrapy crawl FactChecks
 ```
-If you want to store the results of crawling process in a file(an facts.json file for example), then use the following command:
+If you want to store the results of crawling process in a file(a facts.json file for example), then use the following command:
 ```
 scrapy crawl FactChecks -o facts.json
 ```
@@ -45,3 +45,12 @@ The extracted informations are:
 - category
 - claim: A statement or an assertion about the rumor that something is the case, typically without providing evidence or proof.
 - content: The body of the rumor(or claim).
+
+## Future Works
+
+- Accelerate the process of crawling with fine-tuning the parameters in [settings.py](https://github.com/mohsenMahmoodzadeh/Fact-Checks-Crawler/blob/master/snopes/snopes/settings.py)
+
+- Improve the scalability and flexiblity of the crawler with suitable usage of pipelines(in [pipelines.py] (https://github.com/mohsenMahmoodzadeh/Fact-Checks-Crawler/blob/master/snopes/snopes/pipelines.py)) and middlewares(in[middlewares.py] (https://github.com/mohsenMahmoodzadeh/Fact-Checks-Crawler/blob/master/snopes/snopes/middlewares.py))
+
+## Contributing
+Fixes and improvements are more than welcome, so raise an issue or send a PR!
