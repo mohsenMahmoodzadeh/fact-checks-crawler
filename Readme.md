@@ -10,7 +10,7 @@ This crawler is developed in Python and Scrapy for crawling [Snopes Fact checks]
 - content: The body of the rumor(or claim).
 
 ## Environment
-- Python: 3.9.1
+- Python: 3.7.0
 - Scrapy: 2.5.1
 
 ## Setup Guide
