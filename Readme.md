@@ -1,5 +1,42 @@
 # Fact Checks Crawler
-This crawler is developed in Python and Scrapy for crawling [Snopes Fact checks](https://www.snopes.com/fact-check/). The mentioned before url contains some rumors and questionable claims of the day. The extracted informations are:
+This crawler is developed in Python + Scrapy for crawling [Snopes Fact checks](https://www.snopes.com/fact-check/). The mentioned before url contains some rumors and questionable claims of the day. 
+
+## Environment
+- Python: 3.7.0
+- Scrapy: 2.5.1
+
+## Setup Guide
+Clone the repository:
+```
+git clone https://github.com/mohsenMahmoodzadeh/Fact-Checks-Crawler.git
+```
+
+Create a virtual environement (to avoid conflicts):
+```
+virtualenv -p python3.7 fcscraper
+
+# this may vary depending on your shell
+. fcscraper/bin/activate 
+```
+
+Install the dependencies:
+```
+pip install -r requirements.txt
+```
+
+## Usage Guide
+After cloning the repository and install the dependencies, run the command below to crawl the website mentioned above :
+```
+scrapy crawl FactChecks
+```
+If you want to store the results of crawling process in a file(an facts.json file for example), then use the following command:
+```
+scrapy crawl FactChecks -o facts.json
+```
+The other acceptable output formats in the scrapy are listed [here](https://docs.scrapy.org/en/latest/topics/feed-exports.html).
+
+## Data Scheme
+The extracted informations are:
 - title
 - url
 - publish date
@@ -8,23 +45,3 @@ This crawler is developed in Python and Scrapy for crawling [Snopes Fact checks]
 - category
 - claim: A statement or an assertion about the rumor that something is the case, typically without providing evidence or proof.
 - content: The body of the rumor(or claim).
-
-## Environment
-- Python: 3.7.0
-- Scrapy: 2.5.1
-
-## Setup Guide
-Clone the repository:
-> git clone https://github.com/mohsenMahmoodzadeh/Fact-Checks-Crawler.git
-
-Install the dependencies:
-> pip install -r requirements.txt
-
-## Usage Guide
-After cloning the repository and install the dependencies, run the command below to crawl the website mentioned above :
-> scrapy crawl FactChecks
-
-If you want to store the results of crawling process in a file(a *.json file for example), then use the following command:
-> scrapy crawl FactChecks -o <output_file_name>.json
-
-The other acceptable output formats in the scrapy are listed [here](https://docs.scrapy.org/en/latest/topics/feed-exports.html). 
