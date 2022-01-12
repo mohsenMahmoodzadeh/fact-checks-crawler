@@ -1,7 +1,7 @@
 # Fact Checks Crawler
 This crawler is developed in Python + Scrapy for crawling [Snopes Fact checks](https://www.snopes.com/fact-check/). The mentioned before url contains some rumors and questionable claims of the day.
 
-***Note: Updates to the Goodreads website may break this code. We don't guarantee that the scraper will continue to work in the future, but feel free to post an issue if you run into a problem.***
+***Note: Updates to the Snopes website may break this code. We don't guarantee that the scraper will continue to work in the future, but feel free to post an issue if you run into a problem.***
 
 ## Environment
 - Python: 3.7.0
