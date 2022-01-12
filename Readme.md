@@ -5,7 +5,7 @@ This crawler is developed in Python + Scrapy for crawling [Snopes Fact checks](h
 - Python: 3.7.0
 - Scrapy: 2.5.1
 
-## Setup Guide
+## Installation Guide
 Clone the repository:
 ```
 git clone https://github.com/mohsenMahmoodzadeh/Fact-Checks-Crawler.git
