@@ -8,12 +8,12 @@ This crawler is developed in Python + Scrapy for crawling [Snopes Fact checks](h
 - Scrapy: 2.5.1
 
 ## Installation Guide
-Clone the repository:
+- Clone the repository:
 ```
-git clone https://github.com/mohsenMahmoodzadeh/Fact-Checks-Crawler.git
+git clone https://github.com/mohsenMahmoodzadeh/fact-checks-crawler.git
 ```
 
-Create a virtual environement (to avoid conflicts):
+- Create a virtual environment (to avoid conflicts):
 ```
 virtualenv -p python3.7 fcscraper
 
@@ -21,7 +21,7 @@ virtualenv -p python3.7 fcscraper
 . fcscraper/bin/activate 
 ```
 
-Install the dependencies:
+- Install the dependencies:
 ```
 pip install -r requirements.txt
 ```
@@ -38,7 +38,7 @@ scrapy crawl FactChecks -o facts.json
 The other acceptable output formats in the scrapy are listed [here](https://docs.scrapy.org/en/latest/topics/feed-exports.html).
 
 ## Data Scheme
-The extracted informations are:
+The extracted information are:
 - title
 - url
 - publish date
@@ -52,7 +52,7 @@ The extracted informations are:
 
 - Accelerate the process of crawling with fine-tuning the parameters in [settings.py](https://github.com/mohsenMahmoodzadeh/Fact-Checks-Crawler/blob/master/snopes/snopes/settings.py)
 
-- Improve the scalability and flexiblity of the crawler with suitable usage of pipelines (in [pipelines.py](https://github.com/mohsenMahmoodzadeh/Fact-Checks-Crawler/blob/master/snopes/snopes/pipelines.py)) and middlewares (in [middlewares.py](https://github.com/mohsenMahmoodzadeh/Fact-Checks-Crawler/blob/master/snopes/snopes/middlewares.py))
+- Improve the scalability and flexibility of the crawler with suitable usage of pipelines (in [pipelines.py](https://github.com/mohsenMahmoodzadeh/Fact-Checks-Crawler/blob/master/snopes/snopes/pipelines.py)) and middlewares (in [middlewares.py](https://github.com/mohsenMahmoodzadeh/Fact-Checks-Crawler/blob/master/snopes/snopes/middlewares.py))
 
 ## Contributing
 Fixes and improvements are more than welcome, so raise an issue or send a PR!
